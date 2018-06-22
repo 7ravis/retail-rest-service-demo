@@ -10,10 +10,9 @@ public interface UpdatePriceById_Mediator {
 
     /**
      * @param id
-     *            product id. cannot be null, empty, or contain only white space.
+     *            Product id. Cannot be null, empty, or contain only white space.
      * @param price
-     *            new price. non-null.
-     * @return updated product
+     *            New price. Non-null.
      * @throws IdNotFoundException
      *             if provided id cannot be found in data source
      */
