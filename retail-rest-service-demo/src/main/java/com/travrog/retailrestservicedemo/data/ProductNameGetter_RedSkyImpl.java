@@ -14,7 +14,7 @@ public class ProductNameGetter_RedSkyImpl implements ProductNameGetter {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public String getNameByProductId(long productId) {
+	public String getNameByProductId(String productId) {
 		String name = null;
 		try {
 			RestTemplate restTemplate = new RestTemplate();
@@ -29,7 +29,7 @@ public class ProductNameGetter_RedSkyImpl implements ProductNameGetter {
 		return name;
 	}
 
-	private String constructDefaultEndpoint(long productId) {
+	private String constructDefaultEndpoint(String productId) {
 		return BASE_URL + productId + EXCLUSIONS;
 	}
 

@@ -1,6 +1,6 @@
 package com.travrog.retailrestservicedemo.mediator;
 
-import com.travrog.retailrestservicedemo.domain.ProductPrice;
+import com.travrog.retailrestservicedemo.domain.Price;
 import com.travrog.retailrestservicedemo.exception.IdNotFoundException;
 
 /**
@@ -17,6 +17,6 @@ public interface UpdatePriceById_Mediator {
      * @throws IdNotFoundException
      *             if provided id cannot be found in data source
      */
-    void updatePriceById(String id, ProductPrice price) throws IdNotFoundException;
+    void updatePriceById(String id, Price price) throws IdNotFoundException;
 
 }

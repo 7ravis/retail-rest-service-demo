@@ -3,23 +3,31 @@ package com.travrog.retailrestservicedemo.domain.product;
 import com.travrog.retailrestservicedemo.domain.Price;
 
 /**
- * {@link Product} implementation for data submitted by the user/client. data
- * may be missing or erroneous.
+ * client-facing {@link Product} implementation
  */
-public class UserSubmittedProduct implements Product {
-    private String id;
-    private String name;
-    private Price current_price;
+public class ClientFacingProduct implements Product {
+    private final String id;
+    private final String name;
+    private final Price current_price;
 
     /**
      * @param id
-     *            not validated
+     *            cannot be null, empty, or contain only white space
      * @param name
-     *            not validated
+     *            cannot be null, empty, or contain only white space
      * @param current_price
-     *            not validated
+     *            cannot be null
      */
-    public UserSubmittedProduct(String id, String name, Price current_price) {
+    public ClientFacingProduct(String id, String name, Price current_price) {
+	// validate input
+	if (id == null || id.trim().isEmpty())
+	    throw new IllegalArgumentException("id cannot be null, empty, or contain only white space: id=" + id + " name=" + name);
+	if (name == null || name.trim().isEmpty())
+	    throw new IllegalArgumentException(
+		    "name cannot be null, empty, or contain only white space: id=" + id + " name=" + name);
+	if (current_price == null)
+	    throw new IllegalArgumentException("price cannot be null: id=" + id + " name=" + name);
+
 	this.id = id;
 	this.name = name;
 	this.current_price = current_price;
@@ -40,18 +48,6 @@ public class UserSubmittedProduct implements Product {
 	return current_price;
     }
 
-    public void setId(String id) {
-	this.id = id;
-    }
-
-    public void setName(String name) {
-	this.name = name;
-    }
-
-    public void setCurrent_price(Price current_price) {
-	this.current_price = current_price;
-    }
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,7 +66,7 @@ public class UserSubmittedProduct implements Product {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserSubmittedProduct other = (UserSubmittedProduct) obj;
+		ClientFacingProduct other = (ClientFacingProduct) obj;
 		if (current_price == null) {
 			if (other.current_price != null)
 				return false;
@@ -91,7 +87,7 @@ public class UserSubmittedProduct implements Product {
 
 	@Override
 	public String toString() {
-		return "UserSubmittedProduct [id=" + id + ", name=" + name + ", current_price=" + current_price + "]";
+		return "ClientFacingProduct [id=" + id + ", name=" + name + ", current_price=" + current_price + "]";
 	}
 
 }

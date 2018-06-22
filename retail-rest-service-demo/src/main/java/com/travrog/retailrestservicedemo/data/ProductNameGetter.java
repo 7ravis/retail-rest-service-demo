@@ -6,6 +6,6 @@ public interface ProductNameGetter {
 	 * @param productId
 	 * @return product name, or null if unable to obtain
 	 */
-	String getNameByProductId(long productId);
+	String getNameByProductId(String productId);
 	
 }

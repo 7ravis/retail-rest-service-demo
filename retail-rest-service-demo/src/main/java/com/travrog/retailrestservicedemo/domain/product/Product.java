@@ -4,7 +4,7 @@ import com.travrog.retailrestservicedemo.domain.Price;
 
 public interface Product {
 
-    long getId();
+    String getId();
 
     String getName();
 
