@@ -26,6 +26,11 @@ public class GetProductById_Mediator {
 
 
 
+	/**
+	 * @param id Product id. Cannot be null, empty, or contain only white space.
+	 * @return product
+	 * @throws IdNotFoundException 
+	 */
 	public ClientFacingProduct getProductById(String id) throws IdNotFoundException {
 		if (id == null || id.trim().isEmpty())
 			throw new IllegalArgumentException("Id cannot be null, empty, or contain only white space.");
