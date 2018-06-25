@@ -4,7 +4,7 @@ import com.travrog.retailrestservicedemo.data.IdNotFoundException;
 import com.travrog.retailrestservicedemo.domain.Price;
 
 /**
- * update a product's price
+ * update product prices in a data store
  */
 public interface UpdatePriceById {
 

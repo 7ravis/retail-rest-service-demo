@@ -6,6 +6,9 @@ import com.travrog.retailrestservicedemo.data.ProductPriceGetter;
 import com.travrog.retailrestservicedemo.domain.Price;
 import com.travrog.retailrestservicedemo.domain.Product_ClientFacing;
 
+/**
+ * get product prices from a data store
+ */
 public class GetProductById {
 	private final ProductPriceGetter priceGetter;
 	private final ProductNameGetter nameGetter;

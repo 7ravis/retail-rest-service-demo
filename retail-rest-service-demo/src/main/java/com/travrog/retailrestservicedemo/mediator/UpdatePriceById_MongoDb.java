@@ -7,6 +7,9 @@ import com.travrog.retailrestservicedemo.data.repository.ProductPriceRepository_
 import com.travrog.retailrestservicedemo.domain.Price;
 import com.travrog.retailrestservicedemo.domain.ProductPrice_MongoDbImpl;
 
+/**
+ * update product prices in a NoSQL MongoDB database
+ */
 public class UpdatePriceById_MongoDb implements UpdatePriceById {
 	private final ProductPriceRepository_MongoDb repository;
 

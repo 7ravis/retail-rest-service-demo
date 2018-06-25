@@ -1,5 +1,8 @@
 package com.travrog.retailrestservicedemo.domain;
 
+/**
+ * central location for product-related enums
+ */
 public class ProductEnums {
 
     public enum currency_code {

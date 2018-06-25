@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import com.travrog.retailrestservicedemo.domain.ProductEnums.currency_code;
 
+/**
+ * monetary price. differs from {@link ProductPrice} implementations because this class is not intended to contain any product identifier.
+ */
 public class Price {
     private final BigDecimal value;
     private final currency_code currency_code;

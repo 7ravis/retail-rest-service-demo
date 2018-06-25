@@ -13,6 +13,9 @@ import com.travrog.retailrestservicedemo.mediator.GetProductById;
 import com.travrog.retailrestservicedemo.mediator.UpdatePriceById;
 import com.travrog.retailrestservicedemo.mediator.UpdatePriceById_MongoDb;
 
+/**
+ * define dependencies/plugins for main application
+ */
 @Configuration
 public class Beans {
 	
