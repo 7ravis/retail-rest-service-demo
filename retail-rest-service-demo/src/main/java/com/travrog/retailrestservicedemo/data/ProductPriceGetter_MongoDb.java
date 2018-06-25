@@ -2,20 +2,20 @@ package com.travrog.retailrestservicedemo.data;
 
 import java.util.Optional;
 
+import com.travrog.retailrestservicedemo.data.repository.ProductPriceRepository_MongoDb;
 import com.travrog.retailrestservicedemo.domain.Price;
 import com.travrog.retailrestservicedemo.domain.ProductPrice_MongoDbImpl;
-import com.travrog.retailrestservicedemo.repository.ProductPrice_MongoRepository;
 
 /**
  * retrieve product price from MongoDB NoSQL database
  */
-public class ProductPriceGetter_MongoDbImpl implements ProductPriceGetter {
-	private final ProductPrice_MongoRepository priceRepo;
+public class ProductPriceGetter_MongoDb implements ProductPriceGetter {
+	private final ProductPriceRepository_MongoDb priceRepo;
 	
 	/**
 	 * @param priceRepo non-null
 	 */
-	public ProductPriceGetter_MongoDbImpl(ProductPrice_MongoRepository priceRepo) {
+	public ProductPriceGetter_MongoDb(ProductPriceRepository_MongoDb priceRepo) {
 		if (priceRepo == null)
 			throw new IllegalArgumentException("price repository cannot be null");
 		

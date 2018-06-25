@@ -3,7 +3,7 @@ package com.travrog.retailrestservicedemo.domain;
 import org.springframework.data.annotation.Id;
 
 /**
- * return value used with {@link ProductPriceGetter_MongoDbImpl}
+ * return value used with {@link ProductPriceGetter_MongoDb}
  */
 public class ProductPrice_MongoDbImpl implements ProductPrice {
     @Id

@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.travrog.retailrestservicedemo.data.IdNotFoundException;
 import com.travrog.retailrestservicedemo.domain.Price;
-import com.travrog.retailrestservicedemo.domain.product.ClientFacingProduct;
-import com.travrog.retailrestservicedemo.exception.IdNotFoundException;
-import com.travrog.retailrestservicedemo.mediator.GetProductById_Mediator;
-import com.travrog.retailrestservicedemo.mediator.UpdatePriceById_Mediator;
+import com.travrog.retailrestservicedemo.domain.Product_ClientFacing;
+import com.travrog.retailrestservicedemo.mediator.GetProductById;
+import com.travrog.retailrestservicedemo.mediator.UpdatePriceById;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
-	UpdatePriceById_Mediator updatePriceByIdMediator;
+	UpdatePriceById updatePriceByIdMediator;
 
 	@Autowired
-	GetProductById_Mediator getProductByIdMediator;
+	GetProductById getProductByIdMediator;
 
 
 	@GetMapping("/{id}")
 	ResponseEntity<?> findProductById(@PathVariable String id) {
 		try {
-			ClientFacingProduct product = getProductByIdMediator.getProductById(id);
+			Product_ClientFacing product = getProductByIdMediator.getProductById(id);
 			return new ResponseEntity(product, HttpStatus.OK);
 		} catch (IdNotFoundException e) {
 			e.printStackTrace();

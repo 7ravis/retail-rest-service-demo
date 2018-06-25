@@ -1,11 +1,9 @@
-package com.travrog.retailrestservicedemo.domain.product;
-
-import com.travrog.retailrestservicedemo.domain.Price;
+package com.travrog.retailrestservicedemo.domain;
 
 /**
  * client-facing {@link Product} implementation
  */
-public class ClientFacingProduct implements Product {
+public class Product_ClientFacing implements Product {
     private final String id;
     private final String name;
     private final Price current_price;
@@ -18,7 +16,7 @@ public class ClientFacingProduct implements Product {
      * @param current_price
      *            cannot be null
      */
-    public ClientFacingProduct(String id, String name, Price current_price) {
+    public Product_ClientFacing(String id, String name, Price current_price) {
 	// validate input
 	if (id == null || id.trim().isEmpty())
 	    throw new IllegalArgumentException("id cannot be null, empty, or contain only white space: id=" + id + " name=" + name);
@@ -66,7 +64,7 @@ public class ClientFacingProduct implements Product {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ClientFacingProduct other = (ClientFacingProduct) obj;
+		Product_ClientFacing other = (Product_ClientFacing) obj;
 		if (current_price == null) {
 			if (other.current_price != null)
 				return false;
@@ -87,7 +85,7 @@ public class ClientFacingProduct implements Product {
 
 	@Override
 	public String toString() {
-		return "ClientFacingProduct [id=" + id + ", name=" + name + ", current_price=" + current_price + "]";
+		return "Product_ClientFacing [id=" + id + ", name=" + name + ", current_price=" + current_price + "]";
 	}
 
 }

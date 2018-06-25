@@ -1,12 +1,12 @@
 package com.travrog.retailrestservicedemo.mediator;
 
+import com.travrog.retailrestservicedemo.data.IdNotFoundException;
 import com.travrog.retailrestservicedemo.domain.Price;
-import com.travrog.retailrestservicedemo.exception.IdNotFoundException;
 
 /**
  * update a product's price
  */
-public interface UpdatePriceById_Mediator {
+public interface UpdatePriceById {
 
     /**
      * @param id

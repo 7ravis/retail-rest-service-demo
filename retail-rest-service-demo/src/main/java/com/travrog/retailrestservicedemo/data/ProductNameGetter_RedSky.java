@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * retrieve product name from redsky web service
  */
-public class ProductNameGetter_RedSkyImpl implements ProductNameGetter {
+public class ProductNameGetter_RedSky implements ProductNameGetter {
 	public static final String BASE_URL = "https://redsky.target.com/v2/pdp/tcin/";
 	public static final String EXCLUSIONS = "?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics,deep_red_labels,available_to_promise_network";
 

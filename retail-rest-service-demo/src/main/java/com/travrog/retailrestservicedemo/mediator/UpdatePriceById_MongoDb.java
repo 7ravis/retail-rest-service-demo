@@ -2,18 +2,18 @@ package com.travrog.retailrestservicedemo.mediator;
 
 import java.util.Optional;
 
+import com.travrog.retailrestservicedemo.data.IdNotFoundException;
+import com.travrog.retailrestservicedemo.data.repository.ProductPriceRepository_MongoDb;
 import com.travrog.retailrestservicedemo.domain.Price;
 import com.travrog.retailrestservicedemo.domain.ProductPrice_MongoDbImpl;
-import com.travrog.retailrestservicedemo.exception.IdNotFoundException;
-import com.travrog.retailrestservicedemo.repository.ProductPrice_MongoRepository;
 
-public class UpdatePriceById_Mediator_MongoDb implements UpdatePriceById_Mediator {
-	private final ProductPrice_MongoRepository repository;
+public class UpdatePriceById_MongoDb implements UpdatePriceById {
+	private final ProductPriceRepository_MongoDb repository;
 
 	/**
 	 * @param repository non-null
 	 */
-	public UpdatePriceById_Mediator_MongoDb(ProductPrice_MongoRepository repository) {
+	public UpdatePriceById_MongoDb(ProductPriceRepository_MongoDb repository) {
 		if (repository == null) {
 			throw new IllegalArgumentException("Repository cannot be null.");
 		}

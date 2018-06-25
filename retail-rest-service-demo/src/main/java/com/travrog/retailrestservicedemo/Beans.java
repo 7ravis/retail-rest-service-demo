@@ -5,38 +5,38 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.travrog.retailrestservicedemo.data.ProductNameGetter;
-import com.travrog.retailrestservicedemo.data.ProductNameGetter_RedSkyImpl;
+import com.travrog.retailrestservicedemo.data.ProductNameGetter_RedSky;
 import com.travrog.retailrestservicedemo.data.ProductPriceGetter;
-import com.travrog.retailrestservicedemo.data.ProductPriceGetter_MongoDbImpl;
-import com.travrog.retailrestservicedemo.mediator.GetProductById_Mediator;
-import com.travrog.retailrestservicedemo.mediator.UpdatePriceById_Mediator;
-import com.travrog.retailrestservicedemo.mediator.UpdatePriceById_Mediator_MongoDb;
-import com.travrog.retailrestservicedemo.repository.ProductPrice_MongoRepository;
+import com.travrog.retailrestservicedemo.data.ProductPriceGetter_MongoDb;
+import com.travrog.retailrestservicedemo.data.repository.ProductPriceRepository_MongoDb;
+import com.travrog.retailrestservicedemo.mediator.GetProductById;
+import com.travrog.retailrestservicedemo.mediator.UpdatePriceById;
+import com.travrog.retailrestservicedemo.mediator.UpdatePriceById_MongoDb;
 
 @Configuration
 public class Beans {
 	
 	@Autowired
-	ProductPrice_MongoRepository productPriceMongoRepository;
+	ProductPriceRepository_MongoDb productPriceMongoRepository;
 
 	@Bean
-	UpdatePriceById_Mediator updatePriceByIdMediator() {
-		return new UpdatePriceById_Mediator_MongoDb(productPriceMongoRepository);
+	UpdatePriceById updatePriceByIdMediator() {
+		return new UpdatePriceById_MongoDb(productPriceMongoRepository);
 	}
 	
 	@Bean
 	ProductPriceGetter priceGetter() {
-		return new ProductPriceGetter_MongoDbImpl(productPriceMongoRepository);
+		return new ProductPriceGetter_MongoDb(productPriceMongoRepository);
 	}
 	
 	@Bean
 	ProductNameGetter nameGetter() {
-		return new ProductNameGetter_RedSkyImpl();
+		return new ProductNameGetter_RedSky();
 	}
 	
 	@Bean
-	GetProductById_Mediator getProductByIdMediator() {
-		return new GetProductById_Mediator(priceGetter(), nameGetter());
+	GetProductById getProductByIdMediator() {
+		return new GetProductById(priceGetter(), nameGetter());
 	}
 	
 }

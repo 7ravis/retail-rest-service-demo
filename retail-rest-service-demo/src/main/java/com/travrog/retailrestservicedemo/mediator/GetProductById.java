@@ -1,12 +1,12 @@
 package com.travrog.retailrestservicedemo.mediator;
 
+import com.travrog.retailrestservicedemo.data.IdNotFoundException;
 import com.travrog.retailrestservicedemo.data.ProductNameGetter;
 import com.travrog.retailrestservicedemo.data.ProductPriceGetter;
 import com.travrog.retailrestservicedemo.domain.Price;
-import com.travrog.retailrestservicedemo.domain.product.ClientFacingProduct;
-import com.travrog.retailrestservicedemo.exception.IdNotFoundException;
+import com.travrog.retailrestservicedemo.domain.Product_ClientFacing;
 
-public class GetProductById_Mediator {
+public class GetProductById {
 	private final ProductPriceGetter priceGetter;
 	private final ProductNameGetter nameGetter;
 	
@@ -14,7 +14,7 @@ public class GetProductById_Mediator {
 	 * @param priceGetter non-null
 	 * @param nameGetter non-null
 	 */
-	public GetProductById_Mediator(ProductPriceGetter priceGetter, ProductNameGetter nameGetter) {
+	public GetProductById(ProductPriceGetter priceGetter, ProductNameGetter nameGetter) {
 		if (priceGetter == null)
 			throw new IllegalArgumentException("Price getter cannot be null.");
 		if (nameGetter == null)
@@ -31,7 +31,7 @@ public class GetProductById_Mediator {
 	 * @return product
 	 * @throws IdNotFoundException 
 	 */
-	public ClientFacingProduct getProductById(String id) throws IdNotFoundException {
+	public Product_ClientFacing getProductById(String id) throws IdNotFoundException {
 		if (id == null || id.trim().isEmpty())
 			throw new IllegalArgumentException("Id cannot be null, empty, or contain only white space.");
 		
@@ -39,7 +39,7 @@ public class GetProductById_Mediator {
 		Price price = priceGetter.getPriceByProductId(id);
 		if (name == null || price == null)
 			throw new IdNotFoundException();
-		return new ClientFacingProduct(id, name, price);
+		return new Product_ClientFacing(id, name, price);
 	}
 
 }
